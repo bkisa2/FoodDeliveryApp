@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
 import '../data/repository/popular_product_repo.dart';
+import '../models/products_model.dart';
 
 class PopularProductController  extends GetxController
 {
@@ -15,7 +16,7 @@ class PopularProductController  extends GetxController
     if(response.statusCode==2000)
       {
         _popularProductLists=[];
-       // _popularProductLists.addAll();
+       _popularProductLists.addAll(Product.fromJson(response.body).products);
         update();
       }
     else
